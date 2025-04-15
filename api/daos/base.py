@@ -3,7 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
 
-class BaseDAO:
+class Base:
     def __init__(self, model: Type[Any], session: AsyncSession):
         self.model = model
         self.session = session

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from db import get_session
-from daos import LayoutDAO, PlotDAO
+from daos import Layout, Plot
 from models import LayoutCreate, LayoutUpdate, LayoutResponse, PlotResponse
 from typing import List
 
@@ -15,7 +15,7 @@ async def create_layout(
     layout_data: LayoutCreate,
     session: AsyncSession = Depends(get_session)
 ):
-    layout = await LayoutDAO(session).create_layout(**layout_data.model_dump())
+    layout = await Layout(session).create(**layout_data.model_dump())
     if not layout:
         raise HTTPException(status_code=400, detail="Layout creation failed")
     return layout
@@ -25,7 +25,7 @@ async def get_layout(
     layout_id: str,
     session: AsyncSession = Depends(get_session)
 ):
-    layout = await LayoutDAO(session).get_layout_by_id(layout_id)
+    layout = await Layout(session).get_by_id(layout_id)
     if not layout:
         raise HTTPException(status_code=400, detail="Layout not found")
     return layout
@@ -35,7 +35,7 @@ async def get_all_layouts(
     limit: int = 100,
     session: AsyncSession = Depends(get_session)
 ):
-    layouts = await LayoutDAO(session).get_all_layouts(limit=limit)
+    layouts = await Layout(session).list_all(limit=limit)
     return layouts
 
 @router.patch("/{layout_id}", response_model=LayoutResponse)
@@ -44,7 +44,7 @@ async def update_layout(
     layout_data: LayoutUpdate,
     session: AsyncSession = Depends(get_session)
 ):
-    layout = await LayoutDAO(session).update_layout(layout_id, **layout_data.model_dump())
+    layout = await Layout(session).update(layout_id, **layout_data.model_dump())
     if not layout:
         raise HTTPException(status_code=400, detail="Layout update failed")
     return layout
@@ -54,7 +54,7 @@ async def get_layout_plots(
     layout_id: str,
     session: AsyncSession = Depends(get_session)
 ):
-    plots = await PlotDAO(session).get_plots_by_layout_id(layout_id)
+    plots = await Plot(session).get_plots_by_layout_id(layout_id)
     if not plots:
         raise HTTPException(status_code=400, detail="No plots found for this layout")
     return plots

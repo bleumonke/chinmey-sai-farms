@@ -2,8 +2,6 @@ from pydantic import BaseModel
 from typing import Optional
 import uuid
 
-from .plot_schema import PlotResponse
-
 class LayoutCreate(BaseModel):
     name: str
     description: Optional[str] = None

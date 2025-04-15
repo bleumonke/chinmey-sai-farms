@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from routes import __routes__
-from core import lifespan
+from core import lifespan, __routes__
 
 app = FastAPI(
     title="Chimney Farms API",

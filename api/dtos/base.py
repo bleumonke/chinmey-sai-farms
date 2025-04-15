@@ -2,7 +2,7 @@ from sqlalchemy.orm import DeclarativeBase
 import uuid
 from datetime import datetime
 
-class BaseDTO(DeclarativeBase):
+class Base(DeclarativeBase):
     __abstract__ = True
 
     def to_dict(self):
