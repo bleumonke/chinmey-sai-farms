@@ -3,8 +3,8 @@ from sqlalchemy import func, Column, String, TIMESTAMP, Float
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 
-class ExentRangeDTO(BaseDTO):
-    __tablename__ = "exent_ranges"
+class ExtentRangeDTO(BaseDTO):
+    __tablename__ = "extent_ranges"
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4, unique=True, nullable=False)
     label = Column(String(50), nullable=False)
     description = Column(String(255), nullable=True)
