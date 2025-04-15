@@ -9,6 +9,9 @@ from db import (
 
 import logging.config
 import yaml
+import logging
+
+logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -16,8 +19,9 @@ async def lifespan(app: FastAPI):
     with open("logger.yaml", "r") as f:
         config = yaml.safe_load(f)
         logging.config.dictConfig(config)
+    logger.info("🔒 App startup.")
     engine = await create_engine_with_retries()
     init_session_factory(engine)
     await init_db(engine)
     yield
-    print("🔒 App shutdown.")
+    logger.info("🔒 App shutdown.")

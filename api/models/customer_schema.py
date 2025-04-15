@@ -14,13 +14,6 @@ class CustomerCreate(BaseModel):
     zip_code: Optional[str] = None
     country: Optional[str] = None
 
-class CustomerResponse(BaseModel):
-    id: uuid.UUID
-
-    class Config:
-        from_attributes = True
-
-
 class CustomerUpdate(BaseModel):
     first_name: Optional[str] = None
     middle_name: Optional[str] = None
@@ -32,3 +25,10 @@ class CustomerUpdate(BaseModel):
     state: Optional[str] = None
     zip_code: Optional[str] = None
     country: Optional[str] = None
+
+
+class CustomerResponse(CustomerUpdate):
+    id: uuid.UUID
+
+    class Config:
+        from_attributes = True
