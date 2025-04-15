@@ -1,7 +1,6 @@
 from typing import Type, Optional, List, Any
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from sqlalchemy import update as sqlalchemy_update, delete as sqlalchemy_delete
 
 
 class BaseDAO:
