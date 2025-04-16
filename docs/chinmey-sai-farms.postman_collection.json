@@ -1,0 +1,848 @@
+{
+	"info": {
+		"_postman_id": "99e26e70-bb42-4fac-9454-7008edd06fef",
+		"name": "chinmey-sai-farms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2113403"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "list_customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/customers",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_customer/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/customers/52be9f53-702a-4ac9-a0b1-ad76d7f828e1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"52be9f53-702a-4ac9-a0b1-ad76d7f828e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"subramanyam\",\n    \"last_name\": \"Mogili\",\n    \"email\": \"smogili1418@gmail.com\",\n    \"phone\": \"7177437328\",\n    \"address\": \"1330 E Kings Hwy, APT 2208\",\n    \"city\": \"Maple Shade\",\n    \"state\": \"New Jersey\",\n    \"zip_code\": \"08052\",\n    \"country\": \"USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/customers",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_customer/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\": \"1330 E Kings Hwy\",\n    \"city\": \"Maple Shade\",\n    \"state\": \"New Jersey\",\n    \"zip_code\": \"08052\",\n    \"country\": \"USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/customers/52be9f53-702a-4ac9-a0b1-ad76d7f828e1",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"52be9f53-702a-4ac9-a0b1-ad76d7f828e1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_customer/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/customers/e927079a-b341-4b72-8cd0-5ebeec65694d",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"e927079a-b341-4b72-8cd0-5ebeec65694d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Crops",
+			"item": [
+				{
+					"name": "list_crops",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/crops",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"crops"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crops/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/crops/3c09d749-8dcd-4819-92f2-4ad32f056399",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"crops",
+								"3c09d749-8dcd-4819-92f2-4ad32f056399"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_crop",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"mosambi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/crops",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"crops"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_crop/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"mosambi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/crops/3c09d749-8dcd-4819-92f2-4ad32f056399",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"crops",
+								"3c09d749-8dcd-4819-92f2-4ad32f056399"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_crop/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/crops/3c09d749-8dcd-4819-92f2-4ad32f056399",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"crops",
+								"3c09d749-8dcd-4819-92f2-4ad32f056399"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment Modes",
+			"item": [
+				{
+					"name": "list_payment_modes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/payment_modes",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"payment_modes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payment_modes/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/payment_modes/3c09d749-8dcd-4819-92f2-4ad32f056399",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"payment_modes",
+								"3c09d749-8dcd-4819-92f2-4ad32f056399"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_payment_mode",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Out-Rite\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/payment_modes",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"payment_modes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_payment_modes/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"mosambi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/payment_modes/3c09d749-8dcd-4819-92f2-4ad32f056399",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"payment_modes",
+								"3c09d749-8dcd-4819-92f2-4ad32f056399"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_payment_mode/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/payment_modes/3c09d749-8dcd-4819-92f2-4ad32f056399",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"payment_modes",
+								"3c09d749-8dcd-4819-92f2-4ad32f056399"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Layouts",
+			"item": [
+				{
+					"name": "list_layouts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/layouts",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"layouts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "layout/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/layouts/95a08a5c-b8cd-4bfd-a91d-230a3ec14c08",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"layouts",
+								"95a08a5c-b8cd-4bfd-a91d-230a3ec14c08"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_layout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"layout1\",\n    \"address\": \"1330 E Kings Hwy, APT 2208\",\n    \"city\": \"Maple Shade\",\n    \"state\": \"New Jersey\",\n    \"zip_code\": \"08052\",\n    \"country\": \"USA\",\n    \"area_in_acres\": 1,\n    \"center_coordinates\": {},\n    \"perimeter_coordinates\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/layouts",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"layouts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_layout/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"perimeter_coordinates\": {\n            \"lat\": 1,\n            \"long\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/plots/469d1def-4a51-48dd-aa3f-a92e1fb09508",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"plots",
+								"469d1def-4a51-48dd-aa3f-a92e1fb09508"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_layout/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/layouts/692ccf17-f6f3-43bc-b106-3f52a3a240f0",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"layouts",
+								"692ccf17-f6f3-43bc-b106-3f52a3a240f0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plots",
+			"item": [
+				{
+					"name": "list_plots",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/plots",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"plots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "plots/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/plots/469d1def-4a51-48dd-aa3f-a92e1fb09508",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"plots",
+								"469d1def-4a51-48dd-aa3f-a92e1fb09508"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_plot",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"plot1\",\n    \"layout_id\":\"95a08a5c-b8cd-4bfd-a91d-230a3ec14c08\",\n    \"number\": \"1\",\n    \"area_in_acres\": 1,\n    \"perimeter_coordinates\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/plots",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"plots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_plot/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"subramanyam\",\n    \"last_name\": \"Mogili\",\n    \"email\": \"smogili1417@gmail.com\",\n    \"phone\": \"7177437327\",\n    \"address\": \"1330 E Kings Hwy, APT 2208\",\n    \"city\": \"Maple Shade\",\n    \"state\": \"New Jersey\",\n    \"zip_code\": \"08052\",\n    \"country\": \"USA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/plots/692ccf17-f6f3-43bc-b106-3f52a3a240f0",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"plots",
+								"692ccf17-f6f3-43bc-b106-3f52a3a240f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_plot/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/plots/692ccf17-f6f3-43bc-b106-3f52a3a240f0",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"plots",
+								"692ccf17-f6f3-43bc-b106-3f52a3a240f0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Extent Ranges",
+			"item": [
+				{
+					"name": "list_extent_ranges",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/extent_ranges",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"extent_ranges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_extent_ranges/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/extent_ranges/469d1def-4a51-48dd-aa3f-a92e1fb09508",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"extent_ranges",
+								"469d1def-4a51-48dd-aa3f-a92e1fb09508"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_ extent_range",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"label\": \"Option 1\",\n    \"unit\" : \"acers\",\n    \"max_value\": 1,\n    \"min_value\": 0.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/extent_ranges",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"extent_ranges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_extent_ranges/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Option 1 extent range\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://0.0.0.0:8080/extent_ranges/e96f9a6d-10aa-4bd3-8b3b-decc74727e86",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"extent_ranges",
+								"e96f9a6d-10aa-4bd3-8b3b-decc74727e86"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_extent_ranges/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://0.0.0.0:8080/extent_ranges/692ccf17-f6f3-43bc-b106-3f52a3a240f0",
+							"protocol": "http",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"extent_ranges",
+								"692ccf17-f6f3-43bc-b106-3f52a3a240f0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://0.0.0.0:8080/",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

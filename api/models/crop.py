@@ -7,6 +7,6 @@ class CropCreate(BaseModel):
 
 class CropResponse(CropCreate):
     id: uuid.UUID
-
-    class Config:
-        from_attributes = True
+    model_config = {
+        "from_attributes": True
+    }

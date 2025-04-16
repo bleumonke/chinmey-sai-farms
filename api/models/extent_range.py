@@ -12,9 +12,9 @@ class ExtentRangeCreate(BaseModel):
 
 class ExtentRangeResponse(ExtentRangeCreate):
     id: uuid.UUID
-
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True
+    }
 
 class ExtentRangeUpdate(BaseModel):
     label: Optional[str] = None
