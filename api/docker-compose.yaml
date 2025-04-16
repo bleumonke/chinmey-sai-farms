@@ -1,0 +1,60 @@
+version: '3.8'
+services:
+  app:
+    container_name: chinmey-sai-farms-api
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    environment:
+      - env=development
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres_db
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@example.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+      PGADMIN_CONFIG_ENABLE_COOKIE_PROTECTION: "False"
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_SERVER_1_HOST: "postgres"
+      PGADMIN_SERVER_1_PORT: "5432"
+      PGADMIN_SERVER_1_NAME: "postgres"
+      PGADMIN_SERVER_1_USER: "postgres"
+      PGADMIN_SERVER_1_PASSWORD: "postgres"
+      PGADMIN_SERVER_1_DBNAME: "postgres"
+    ports:
+      - "5050:80"
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+
+networks:
+  app-network:
+    driver: bridge
+  
+volumes:
+  postgres_data:
+    driver: local
