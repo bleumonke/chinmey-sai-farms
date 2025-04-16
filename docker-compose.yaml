@@ -1,14 +1,13 @@
-version: '3.8'
 services:
   app:
     container_name: chinmey-sai-farms-api
     build: 
-      context: .
+      context: ./api
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
     volumes:
-      - .:/app
+      - ./api:/app
     environment:
       - env=development
     networks:
@@ -38,9 +37,9 @@ services:
       PGADMIN_DEFAULT_PASSWORD: "admin"
       PGADMIN_CONFIG_ENABLE_COOKIE_PROTECTION: "False"
       PGADMIN_CONFIG_SERVER_MODE: "False"
-      PGADMIN_SERVER_1_HOST: "postgres"
+      PGADMIN_SERVER_1_HOST: "172.18.0.2"
       PGADMIN_SERVER_1_PORT: "5432"
-      PGADMIN_SERVER_1_NAME: "postgres"
+      PGADMIN_SERVER_1_NAME: "database"
       PGADMIN_SERVER_1_USER: "postgres"
       PGADMIN_SERVER_1_PASSWORD: "postgres"
       PGADMIN_SERVER_1_DBNAME: "postgres"
@@ -50,6 +49,22 @@ services:
       - app-network
     depends_on:
       - postgres
+
+  ui:
+    container_name: chinmey-sai-farms-ui
+    build: 
+      context: ./ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ui:/app
+    environment:
+      - env=development
+    networks:
+      - app-network
+    depends_on:
+      - app
 
 networks:
   app-network:
