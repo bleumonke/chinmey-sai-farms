@@ -15,6 +15,4 @@ class Layout(Base):
     country = Column(String(50), nullable=False)
     area_in_acres = Column(Float, nullable=False)
     center_coordinates = Column(JSON, nullable=False)
-    perimeter_cordinates = Column(JSON, nullable=False)
-    created_at = Column(TIMESTAMP, server_default=func.now(), nullable=False)
-    updated_at = Column(TIMESTAMP, onupdate=func.now(), nullable=True)
+    perimeter_coordinates = Column(JSON, nullable=False)

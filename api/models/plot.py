@@ -7,7 +7,6 @@ class PlotCreate(BaseModel):
     layout_id: uuid.UUID
     name: str
     area_in_acres: float
-    center_coordinates: dict
     perimeter_coordinates: dict
     is_sold: bool = False
     is_active: bool = True
@@ -19,7 +18,6 @@ class PlotUpdate(BaseModel):
     layout_id: Optional[str] = None
     name: Optional[str] = None
     area_in_acres: Optional[float] = None
-    center_coordinates: Optional[dict] = None
     perimeter_coordinates: Optional[dict] = None
     is_sold: Optional[bool] = None
     is_active: Optional[bool] = None

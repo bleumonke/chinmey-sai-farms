@@ -7,7 +7,7 @@ from dtos import Plot as PlotDTO
 
 class Plot(Base):
     def __init__(self, session: AsyncSession):
-        super().__init__(Plot, session)
+        super().__init__(PlotDTO, session)
     
     async def get_plots_by_layout_id(self, layout_id: uuid.UUID) -> List[PlotDTO]:
         result = await self.session.execute(

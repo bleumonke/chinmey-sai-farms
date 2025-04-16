@@ -1,38 +1,44 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import Depends, HTTPException, APIRouter
 from sqlalchemy.ext.asyncio import AsyncSession
 from db import get_session
-from daos import Plot
+from typing import List
+from daos import Plot as PlotDAO
 from models import PlotCreate, PlotUpdate, PlotResponse
+
 
 router = APIRouter(
     prefix="/plots",
-    tags=["Plots"]
+    tags=["plots"]
 )
 
-@router.post("/", response_model=PlotResponse)
-async def create_plot(plot_data: PlotCreate, session: AsyncSession = Depends(get_session)):
-    created_plot = await Plot(session).create(**plot_data.model_dump())
-    if not created_plot:
-        raise HTTPException(status_code=400, detail="Plot creation failed")
-    return created_plot
+@router.get("", response_model=List[PlotResponse])
+async def get_plots(session: AsyncSession = Depends(get_session)):
+    plots = await PlotDAO(session).list_all()
+    return [plot.to_dict() for plot in plots]
 
 @router.get("/{plot_id}", response_model=PlotResponse)
-async def get_plot(plot_id: int, session: AsyncSession = Depends(get_session)):
-    plot = await Plot(session).get_by_id(plot_id)
+async def get_plot(plot_id: str, session: AsyncSession = Depends(get_session)):
+    plot = await PlotDAO(session).get_by_id(plot_id)
     if not plot:
-        raise HTTPException(status_code=404, detail="Plot not found")
-    return plot
+        raise HTTPException(status_code=400, detail="No plot found with this ID")
+    return plot.to_dict()
+
+@router.post("", response_model=PlotResponse)
+async def create_plot(plot: PlotCreate, session: AsyncSession = Depends(get_session)):
+    plot_dao = await PlotDAO(session).create(**plot.model_dump())
+    if not plot_dao:
+        raise HTTPException(status_code=400, detail="Plot could not be created")
+    return plot_dao.to_dict()
 
 @router.patch("/{plot_id}", response_model=PlotResponse)
-async def update_plot(plot_id: int, plot_data: PlotUpdate, session: AsyncSession = Depends(get_session)):
-    updated_plot = await Plot(session).update(plot_id, **plot_data.model_dump())
-    if not updated_plot:
-        raise HTTPException(status_code=404, detail="Plot not found")
-    return updated_plot
+async def update_plot(plot_id: str, plot: PlotUpdate, session: AsyncSession = Depends(get_session)):
+    plot_dao = await PlotDAO(session).update(plot_id, **plot.model_dump())
+    if not plot_dao:
+        raise HTTPException(status_code=400, detail="No plot found with this ID")
+    return plot_dao.to_dict()
 
-@router.delete("/{plot_id}", response_model=PlotResponse)
-async def delete_plot(plot_id: int, session: AsyncSession = Depends(get_session)):
-    deleted_plot = await Plot(session).delete(plot_id)
-    if not deleted_plot:
-        raise HTTPException(status_code=404, detail="Plot not found")
-    return deleted_plot
+@router.delete("/{plot_id}", status_code=204)
+async def delete_plot(plot_id: str, session: AsyncSession = Depends(get_session)):
+    plot_dao = await PlotDAO(session).delete(plot_id)
+    if not plot_dao:
+        raise HTTPException(status_code=400, detail="No plot found with this ID")

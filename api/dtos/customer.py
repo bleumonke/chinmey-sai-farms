@@ -16,5 +16,3 @@ class Customer(Base):
     state = Column(String(50), nullable=True)
     zip_code = Column(String(10), nullable=True)
     country = Column(String(50), nullable=True)
-    created_at = Column(TIMESTAMP, server_default=func.now(), nullable=False)
-    updated_at = Column(TIMESTAMP, onupdate=func.now(), nullable=True)

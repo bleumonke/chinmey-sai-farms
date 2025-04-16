@@ -11,5 +11,3 @@ class ExtentRange(Base):
     unit = Column(String(50), nullable=False)
     min_value = Column(Float, nullable=False)
     max_value = Column(Float, nullable=False)
-    created_at = Column(TIMESTAMP, server_default=func.now(), nullable=False)
-    updated_at = Column(TIMESTAMP, onupdate=func.now(), nullable=True)

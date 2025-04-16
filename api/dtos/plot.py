@@ -1,5 +1,5 @@
 from .base import Base
-from sqlalchemy import func, Column, String, TIMESTAMP, JSON, Boolean, ForeignKey, Float
+from sqlalchemy import func, Column, String, JSON, Boolean, ForeignKey, Float
 from sqlalchemy.dialects.postgresql import UUID
 import uuid
 
@@ -14,5 +14,3 @@ class Plot(Base):
     perimeter_coordinates = Column(JSON, nullable=False)
     is_sold = Column(Boolean, nullable=False, default=False)
     is_active = Column(Boolean, nullable=False, default=True)
-    created_at = Column(TIMESTAMP, server_default=func.now(), nullable=False)
-    updated_at = Column(TIMESTAMP, onupdate=func.now(), nullable=True)

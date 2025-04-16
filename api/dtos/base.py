@@ -1,9 +1,12 @@
 from sqlalchemy.orm import DeclarativeBase
-import uuid
+from sqlalchemy import func, Column, TIMESTAMP
 from datetime import datetime
+import uuid
 
 class Base(DeclarativeBase):
     __abstract__ = True
+    created_at = Column(TIMESTAMP, server_default=func.now(), nullable=False)
+    updated_at = Column(TIMESTAMP, onupdate=func.now(), nullable=True)
 
     def to_dict(self):
         result = {}
