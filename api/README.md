@@ -44,5 +44,5 @@ chimney_farms/
 ## Command to Run
 
 ```bash
-uvicorn api.main:app --reload --host 0.0.0.0 --port 8080
+uvicorn main:app --reload --host 0.0.0.0 --port 8080
 ```
