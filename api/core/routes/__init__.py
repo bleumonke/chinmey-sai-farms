@@ -4,6 +4,8 @@ from .plots import router as plots_router
 from .extent_ranges import router as extent_ranges_router
 from .crops import router as crops_router
 from .payment_mode import router as payment_mode_router
+from .pricing import router as pricing_router
+from .plot_transaction import router as plot_transactions_router
 
 __routes__ = [
     customer_router,
@@ -11,5 +13,7 @@ __routes__ = [
     plots_router,
     extent_ranges_router,
     crops_router,
-    payment_mode_router
+    payment_mode_router,
+    pricing_router,
+    plot_transactions_router
 ]

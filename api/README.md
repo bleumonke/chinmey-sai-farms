@@ -46,3 +46,7 @@ chimney_farms/
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8080
 ```
+
+# KILL Ports
+sudo lsof -i:8080
+kill -9 <PID Number>
